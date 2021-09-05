@@ -186,26 +186,19 @@ const data = [
 //   walk: 3,
 // }
 
-const transportations = (arr) =>
-  arr.reduce((obj, item) => {
-    if (!obj[item]) {
-      obj[item] = 0;
-    }
-    obj[item]++;
+// const transportations = (arr) =>
+//   arr.reduce((obj, item) => {
+//     if (!obj[item]) {
+//       obj[item] = 0;
+//     }
+//     obj[item]++;
 
-    return obj;
-  }, {});
+//     return obj;
+//   }, {});
 
-console.log(transportations(data));
+const transportations = data.reduce(
+  (acc, item) => ({ ...acc, [item]: acc[item] + 1 || 1 }),
+  {}
+);
 
-// const me = {
-//   name: 0,
-//   gender: "male"
-// }
-
-// me["canSwime"] = false;
-// me["name"]++
-// me["name"]++
-// me["name"]++
-// me["name"]++
-// console.log(me["name"]);
+console.log(transportations);
